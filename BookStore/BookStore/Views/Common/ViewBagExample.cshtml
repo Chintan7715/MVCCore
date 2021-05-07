@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "ViewBag";
+}
+
+<h3>ViewBag Example</h3>
+@ViewBag.Tital
+<br />
+@{
+    var data = ViewBag.Data;
+}
+@data.Id
+@data.Name
+<br />
+@ViewBag.myData.Id
+@ViewBag.myData.Author
+
+
+

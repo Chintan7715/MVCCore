@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"] | Book Store Application</title>
+    <environment include="Development">
+        <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        @*<link href="~/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />*@
+        <link rel="stylesheet" 
+              href="http://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+              asp-fallback-href="~/lib/twitter-bootstrap/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only"
+              asp-fallback-test-property="possition"
+              asp-fallback-test-value="absolute"
+              integrity=""  
+              crossorigin="anonymous">
+    </environment>
+    
+    <link href="~/css/Site.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a class="navbar-brand" href="/">
+                <img src="~/images/Logo.jpg" height="30" width="30" asp-append-version="true" />
+                Book Store
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="book" asp-action="getallbooks">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="book" asp-action="AddNewBook">Add New Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="home" asp-action="about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="home" asp-action="Contactus">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Common
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbardropdown">
+                            <a class="dropdown-item" asp-controller="common" asp-action="ViewBagExample">ViewBag</a>
+                            <a class="dropdown-item" asp-controller="common" asp-action="ViewDataExample">ViewData</a>
+                            <a class="dropdown-item" asp-controller="common" asp-action="ViewDataAttribute">View Data Attribute</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">something else here</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    @*<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">*@
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+                    <button class="btn btn-outline-primary my-2 my-sm-0 mx-1" type="submit">Register</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top text-muted text-center">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            Copyright &copy; Book Store @DateTime.Now.Year
+        </div>
+    </footer>
+    <environment include="Development">
+        <script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/jquery-validate/jquery.validate.js"></script>
+        <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/jquery/jquery.min.js"></script>
+        <script src="~/jquery-validate/jquery.validate.min.js"></script>
+        <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    </environment>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
+
+    @RenderSection("myScript", required: false);    
+</body>
+</html>

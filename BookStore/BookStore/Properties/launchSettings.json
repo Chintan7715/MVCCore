@@ -11,9 +11,10 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+        "environmentVariables": {
+            //"ASPNETCORE_ENVIRONMENT": "Production"
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        }
     },
     "BookStore": {
       "commandName": "Project",

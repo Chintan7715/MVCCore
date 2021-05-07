@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "ViewData";
+}
+<h3>ViewData Example</h3>
+
+@ViewData["Name"]
+<br />
+@{
+    var bk = ViewData["Book"] as BookModel;
+
+    @bk.Id;
+    @bk.Author;
+}

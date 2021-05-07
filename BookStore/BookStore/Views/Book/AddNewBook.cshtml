@@ -1,0 +1,65 @@
+﻿@using BookStore.Enums
+@model BookModel
+@{ 
+    ViewData["Title"] = "Add New Book";
+}
+<div class="container">
+    <h3 class="display-4">Add New Book</h3>
+    @if (ViewBag.IsSuccess == true)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Congratulation!</strong> You should add new book successfully.<br />
+    <a asp-controller="Book" asp-action="GetBookDetail" asp-route-id="@ViewBag.BookId">Click here to view the detail</a>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    @*<form method="post" asp-action="AddNewBook" asp-controller="Book">*@
+    @*If Action name, Controller name, Area ame is diffrent then need to add attribute for that
+        otherwise no need to add*@
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    @*<div class="form-group">
+            <label asp-for="myFiels"></label>
+            <input asp-for="myFiels" class="form-control" />
+            <span asp-validation-for="myFiels" class="text-danger"></span>
+        </div>*@
+
+    <div class="form-group">
+        <label asp-for="Tital"></label>
+        <input asp-for="Tital" class="form-control" />
+        <span asp-validation-for="Tital" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Author"></label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LanguageId"></label>
+        <select asp-for="LanguageId" class="form-control" asp-items="ViewBag.Language">
+            @*<select asp-for="LanguageId" class="form-control" asp-items="Html.GetEnumSelectList<LanguageEnum>()">*@
+            <option value="">Select Language</option>
+            @*<option value="Hindi">Hindi (One of the best language)</option>
+            <option value="English">English (Globle Language)</option>
+            <option value="Gujarati">Gujarati (Famous Language)</option>*@
+        </select>
+        <span asp-validation-for="LanguageId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TotalPage"></label>
+        <input asp-for="TotalPage" class="form-control" />
+        <span asp-validation-for="TotalPage" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+</form>
+</div>
